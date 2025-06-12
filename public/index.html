@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+<script src="https://subtle-druid-430b16.netlify.app/codemate-badge.js" defer></script>
+</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="React Todo App built with Tailwind CSS" />
+    <title>React Todo App</title>
+    <!-- Preload Tailwind CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" as="script" />
+    <!-- Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <script>
+        // Check if user has dark mode preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        /* Prevent flash of wrong theme */
+        .dark {
+            color-scheme: dark;
+        }
+        
+        .light {
+            color-scheme: light;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen transition-colors duration-300">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" class="container mx-auto p-4"></div>
+    <!-- Tailwind CSS CDN with dark mode configuration -->
+    <script>
+        window.tailwindConfig = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            900: '#121212',
+                            800: '#1f1f1f',
+                            700: '#2e2e2e',
+                            600: '#484848',
+                            500: '#666666',
+                            400: '#888888',
+                            300: '#b0b0b0',
+                            200: '#d5d5d5',
+                            100: '#f5f5f5',
+                            50: '#fafafa',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</body>
+</html>
